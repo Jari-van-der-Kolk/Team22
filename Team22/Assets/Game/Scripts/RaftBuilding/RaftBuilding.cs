@@ -7,7 +7,7 @@ public class RaftBuilding : MonoBehaviour
 {
     private int[,] _raftGrid = new int[7, 4];
 
-    private Vector3 _raftOffset
+    private Vector3 _raftOffset = new Vector3(8, 0, 6);
 
     private void Awake()
     {
