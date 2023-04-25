@@ -42,14 +42,8 @@ public class Enemy : MonoBehaviour
                 break;
 
             case States.attacking:
-                Vector3 oldPlayerPos;
-                if (!_shootingPosition)
-                {
-                    oldPlayerPos = _player.position;
-                    _shootingPosition = true;
-                }
-                transform.position = Vector3.MoveTowards(transform.position, _player.position, _enemyData.AttackSpeed * Time.deltaTime);
-                transform.LookAt(_targetPosition);
+                transform.LookAt(_player.position);
+                
                 break;
         }
     }
