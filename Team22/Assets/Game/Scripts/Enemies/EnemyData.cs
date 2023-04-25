@@ -7,5 +7,7 @@ using UnityEngine;
 public class EnemyData : ScriptableObject
 {
     public float Speed;
-
+    public float AttackSpeed;
+    public float MovementAmount;
+    public float DetectingPlayerDistance;
 }
