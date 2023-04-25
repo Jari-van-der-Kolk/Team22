@@ -154,8 +154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: 945833514}
   _states: 0
-  _movementAmount: 5
-  _movementSpeed: 5
+  _enemyData: {fileID: 11400000, guid: 4d8a2a71c36e8f949bc263c67d3997e2, type: 2}
 --- !u!4 &10844524
 Transform:
   m_ObjectHideFlags: 0
@@ -202,8 +201,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: 945833514}
   _states: 0
-  _movementAmount: 5
-  _movementSpeed: 5
+  _enemyData: {fileID: 11400000, guid: 4d8a2a71c36e8f949bc263c67d3997e2, type: 2}
 --- !u!4 &15501000
 Transform:
   m_ObjectHideFlags: 0
@@ -537,8 +535,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: 945833514}
   _states: 0
-  _movementAmount: 5
-  _movementSpeed: 5
+  _enemyData: {fileID: 11400000, guid: 4d8a2a71c36e8f949bc263c67d3997e2, type: 2}
 --- !u!4 &336600801
 Transform:
   m_ObjectHideFlags: 0
@@ -873,8 +870,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: 945833514}
   _states: 0
-  _movementAmount: 5
-  _movementSpeed: 5
+  _enemyData: {fileID: 11400000, guid: 4d8a2a71c36e8f949bc263c67d3997e2, type: 2}
 --- !u!4 &478324168
 Transform:
   m_ObjectHideFlags: 0
@@ -921,8 +917,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: 945833514}
   _states: 0
-  _movementAmount: 5
-  _movementSpeed: 5
+  _enemyData: {fileID: 11400000, guid: 4d8a2a71c36e8f949bc263c67d3997e2, type: 2}
 --- !u!4 &557026205
 Transform:
   m_ObjectHideFlags: 0
@@ -969,8 +964,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: 945833514}
   _states: 0
-  _movementAmount: 5
-  _movementSpeed: 5
+  _enemyData: {fileID: 11400000, guid: 4d8a2a71c36e8f949bc263c67d3997e2, type: 2}
 --- !u!4 &564368590
 Transform:
   m_ObjectHideFlags: 0
@@ -1209,8 +1203,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: 945833514}
   _states: 0
-  _movementAmount: 5
-  _movementSpeed: 5
+  _enemyData: {fileID: 11400000, guid: 4d8a2a71c36e8f949bc263c67d3997e2, type: 2}
 --- !u!4 &684538054
 Transform:
   m_ObjectHideFlags: 0
@@ -1257,8 +1250,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: 945833514}
   _states: 0
-  _movementAmount: 5
-  _movementSpeed: 5
+  _enemyData: {fileID: 11400000, guid: 4d8a2a71c36e8f949bc263c67d3997e2, type: 2}
 --- !u!4 &705460803
 Transform:
   m_ObjectHideFlags: 0
@@ -1497,8 +1489,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: 945833514}
   _states: 0
-  _movementAmount: 5
-  _movementSpeed: 5
+  _enemyData: {fileID: 11400000, guid: 4d8a2a71c36e8f949bc263c67d3997e2, type: 2}
 --- !u!4 &859208108
 Transform:
   m_ObjectHideFlags: 0
@@ -1832,8 +1823,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: 945833514}
   _states: 0
-  _movementAmount: 5
-  _movementSpeed: 5
+  _enemyData: {fileID: 11400000, guid: 4d8a2a71c36e8f949bc263c67d3997e2, type: 2}
 --- !u!4 &1079362448
 Transform:
   m_ObjectHideFlags: 0
@@ -2442,8 +2432,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: 945833514}
   _states: 0
-  _movementAmount: 5
-  _movementSpeed: 5
+  _enemyData: {fileID: 11400000, guid: 4d8a2a71c36e8f949bc263c67d3997e2, type: 2}
 --- !u!4 &1456273638
 Transform:
   m_ObjectHideFlags: 0
@@ -2490,8 +2479,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: 945833514}
   _states: 0
-  _movementAmount: 5
-  _movementSpeed: 5
+  _enemyData: {fileID: 11400000, guid: 4d8a2a71c36e8f949bc263c67d3997e2, type: 2}
 --- !u!4 &1459295131
 Transform:
   m_ObjectHideFlags: 0
@@ -2538,8 +2526,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: 945833514}
   _states: 0
-  _movementAmount: 5
-  _movementSpeed: 5
+  _enemyData: {fileID: 11400000, guid: 4d8a2a71c36e8f949bc263c67d3997e2, type: 2}
 --- !u!4 &1464997833
 Transform:
   m_ObjectHideFlags: 0
@@ -2682,8 +2669,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: 945833514}
   _states: 0
-  _movementAmount: 5
-  _movementSpeed: 5
+  _enemyData: {fileID: 11400000, guid: 4d8a2a71c36e8f949bc263c67d3997e2, type: 2}
 --- !u!4 &1523953849
 Transform:
   m_ObjectHideFlags: 0
@@ -2730,8 +2716,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: 945833514}
   _states: 0
-  _movementAmount: 5
-  _movementSpeed: 5
+  _enemyData: {fileID: 11400000, guid: 4d8a2a71c36e8f949bc263c67d3997e2, type: 2}
 --- !u!4 &1611241963
 Transform:
   m_ObjectHideFlags: 0
@@ -2778,8 +2763,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: 945833514}
   _states: 0
-  _movementAmount: 5
-  _movementSpeed: 5
+  _enemyData: {fileID: 11400000, guid: 4d8a2a71c36e8f949bc263c67d3997e2, type: 2}
 --- !u!4 &1638734752
 Transform:
   m_ObjectHideFlags: 0
@@ -2922,8 +2906,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: 945833514}
   _states: 0
-  _movementAmount: 5
-  _movementSpeed: 5
+  _enemyData: {fileID: 11400000, guid: 4d8a2a71c36e8f949bc263c67d3997e2, type: 2}
 --- !u!4 &1722025501
 Transform:
   m_ObjectHideFlags: 0
@@ -3464,8 +3447,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: 945833514}
   _states: 0
-  _movementAmount: 5
-  _movementSpeed: 5
+  _enemyData: {fileID: 11400000, guid: 4d8a2a71c36e8f949bc263c67d3997e2, type: 2}
 --- !u!1 &1955632755
 GameObject:
   m_ObjectHideFlags: 0
@@ -3497,8 +3479,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: 945833514}
   _states: 0
-  _movementAmount: 5
-  _movementSpeed: 5
+  _enemyData: {fileID: 11400000, guid: 4d8a2a71c36e8f949bc263c67d3997e2, type: 2}
 --- !u!4 &1955632757
 Transform:
   m_ObjectHideFlags: 0
@@ -3736,8 +3717,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: 945833514}
   _states: 0
-  _movementAmount: 5
-  _movementSpeed: 5
+  _enemyData: {fileID: 11400000, guid: 4d8a2a71c36e8f949bc263c67d3997e2, type: 2}
 --- !u!4 &2055238231
 Transform:
   m_ObjectHideFlags: 0
@@ -3784,8 +3764,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: 945833514}
   _states: 0
-  _movementAmount: 5
-  _movementSpeed: 5
+  _enemyData: {fileID: 11400000, guid: 4d8a2a71c36e8f949bc263c67d3997e2, type: 2}
 --- !u!4 &2143689127
 Transform:
   m_ObjectHideFlags: 0
