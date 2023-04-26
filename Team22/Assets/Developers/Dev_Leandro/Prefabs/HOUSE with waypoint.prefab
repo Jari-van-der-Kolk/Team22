@@ -1545,7 +1545,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5759444612602746263}
   m_Layer: 0
-  m_Name: 'HOUSE '
+  m_Name: HOUSE with waypoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
