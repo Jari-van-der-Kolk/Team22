@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 6
   AttackSpeed: 2
-  MovementAmount: 4
+  MovementAmount: 7
   DetectingPlayerDistance: 12
