@@ -5,8 +5,8 @@ using UnityEngine;
 using UnityEngine.Events;
 
 
-[CreateAssetMenu(fileName = "CreateMenu")]
-public class MenuNode : ScriptableObject
+[System.Serializable]
+public class MenuNode
 {
     public KeyCode button;
     public GameObject panel;

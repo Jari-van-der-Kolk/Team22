@@ -10,7 +10,7 @@ public enum States
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] private Transform _player;
+    public Transform Player;
 
     [SerializeField] private States _states;
     [SerializeField] private EnemyData _enemyData;
@@ -28,6 +28,8 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
+        if (!Player) return;
+
         switch (_states)
         {
             case States.roaming:
@@ -38,16 +40,16 @@ public class Enemy : MonoBehaviour
                 if (Vector3.Distance(transform.position, _targetPosition) < _distanceThreshold)
                     ChooseNewRandomTargetPosition();
 
-                if (Vector3.Distance(transform.position, _player.position) <= _enemyData.DetectingPlayerDistance)
+                if (Vector3.Distance(transform.position, Player.position) <= _enemyData.DetectingPlayerDistance)
                     _states = States.attacking;
 
                 _rb.velocity = Vector3.zero;
                 break;
 
             case States.attacking:
-                transform.LookAt(_player.position);
+                transform.LookAt(Player.position);
                 _rb.AddForce(transform.forward * _enemyData.AttackSpeed, ForceMode.Force);
-                if (Vector3.Distance(transform.position, _player.position) >= _enemyData.DetectingPlayerDistance)
+                if (Vector3.Distance(transform.position, Player.position) >= _enemyData.DetectingPlayerDistance)
                 {
                     _states = States.roaming;
                 }
@@ -57,10 +59,15 @@ public class Enemy : MonoBehaviour
 
     private void ChooseNewRandomTargetPosition()
     {
-        float x = Random.Range(_player.position.x + (-10f * _enemyData.MovementAmount), _player.position.x + (10f * _enemyData.MovementAmount));
-        float y = Random.Range(_player.position.y + (-2f * _enemyData.MovementAmount), _player.position.y + (5f * _enemyData.MovementAmount));
-        float z = Random.Range(_player.position.z + (-10f * _enemyData.MovementAmount), _player.position.z + (10f * _enemyData.MovementAmount));
+        float x = Random.Range(Player.position.x + (-10f * _enemyData.MovementAmount), Player.position.x + (10f * _enemyData.MovementAmount));
+        float y = Random.Range(Player.position.y + (-2f * _enemyData.MovementAmount), Player.position.y + (5f * _enemyData.MovementAmount));
+        float z = Random.Range(Player.position.z + (-10f * _enemyData.MovementAmount), Player.position.z + (10f * _enemyData.MovementAmount));
 
         _targetPosition = new Vector3(x, y, z);
+    }
+
+    private void OnDestroy()
+    {
+        Player.GetComponent<SpawningEnemies>().AllEnemies.Remove(gameObject);
     }
 }

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace JariUnityUISystem
 {
@@ -15,7 +16,6 @@ namespace JariUnityUISystem
         {
             AddLowestPriority();
             DeactivateAll();
-            DontDestroyOnLoad(this);
         }
 
         private void Update()
@@ -126,5 +126,9 @@ namespace JariUnityUISystem
 
         public void DeactivateScript(Behaviour behaviour) => behaviour.enabled = false;
         public void ActivateScript(Behaviour behaviour) => behaviour.enabled = true;
+
+        public void ChangeScene(string name) => SceneManager.LoadScene(name);
+
+        public void QuitGame() => Application.Quit();
     }
 }

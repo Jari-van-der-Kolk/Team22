@@ -23,7 +23,7 @@ public class PlaneRotation : MonoBehaviour
         currentRotationZ = Mathf.Clamp(currentRotationZ, -maxRotationZ, maxRotationZ);
 
         // Apply the new rotation angles
-        transform.rotation = Quaternion.Euler(currentRotationX, 0f, currentRotationZ);
+        transform.rotation = Quaternion.Euler(currentRotationX, transform.rotation.eulerAngles.y, currentRotationZ);
 
 
     }
