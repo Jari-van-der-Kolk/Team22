@@ -10,7 +10,7 @@ public enum States
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] private Transform _player;
+    public Transform _player;
 
     [SerializeField] private States _states;
     [SerializeField] private EnemyData _enemyData;
