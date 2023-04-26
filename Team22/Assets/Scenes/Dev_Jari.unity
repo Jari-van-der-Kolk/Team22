@@ -278,12 +278,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 912606164}
   distance: 10
-  minDistance: 2
-  maxDistance: 10
-  height: 2
-  smoothSpeed: 5
-  rotationSpeed: 2
-  zoomSpeed: 2
+  height: 10
+  rotationDamping: 3
+  heightDamping: 2
+  mouseSensitivity: 2
+  scrollSensitivity: 2
 --- !u!1 &236986969
 GameObject:
   m_ObjectHideFlags: 0
