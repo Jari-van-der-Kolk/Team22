@@ -16,6 +16,7 @@ public class ThirdPersonCamera : MonoBehaviour
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        target = FindObjectOfType<Movement>().transform;
     }
 
     private void LateUpdate()

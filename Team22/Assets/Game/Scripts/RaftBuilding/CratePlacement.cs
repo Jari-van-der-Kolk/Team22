@@ -5,6 +5,8 @@ using UnityEngine;
 public class CratePlacement : MonoBehaviour
 {
     public bool _itemSelected;
+
+    [SerializeField] private Transform _papa;
     [SerializeField] private RaftBuilding _raftBuilding;
     [SerializeField] private CrateObject[] _crateTypes;
     [SerializeField] private Transform _sampleCrate;
@@ -31,7 +33,7 @@ public class CratePlacement : MonoBehaviour
                         if (Input.GetMouseButtonDown(0))
                         {
                             _tempMoney -= _crateTypes[_selectedCrateType].Cost;
-                            Instantiate(_crateTypes[_selectedCrateType].Prefab, _sampleCrate.position, Quaternion.identity);
+                            Instantiate(_crateTypes[_selectedCrateType].Prefab, _sampleCrate.position, Quaternion.identity, _papa);
                         }
                     }
                     else

@@ -14,6 +14,8 @@ public class RaftBuilding : MonoBehaviour
         Balloon
     }
 
+    [SerializeField] private Transform _papa;
+
     [SerializeField] private CratePlacement _cratePlacement;
 
     [SerializeField] private BuildingObject[] _tileObjects;
@@ -201,9 +203,9 @@ public class RaftBuilding : MonoBehaviour
                     {
                         var x = i * 2;
                         var z = j * 2;
-                        var raft = Instantiate(_tileObjects[k].Prefab, new Vector3(x, 0, z) - _raftOffset + _tileObjects[k].Offset, Quaternion.identity);
+                        var raft = Instantiate(_tileObjects[k].Prefab, new Vector3(x, 0, z) - _raftOffset + _tileObjects[k].Offset, Quaternion.identity, _papa);
                         raft.GetComponent<TileObject>().Position = new Vector2Int(i, j);
-                        raft.transform.parent = transform;
+                        raft.transform.parent = _papa;
                     }
                 }
             }
@@ -214,9 +216,9 @@ public class RaftBuilding : MonoBehaviour
     {
         var x = position.x * 2;
         var z = position.y * 2;
-        var raft = Instantiate(buildingObject.Prefab, new Vector3(x, 0, z) - _raftOffset + buildingObject.Offset, Quaternion.identity);
+        var raft = Instantiate(buildingObject.Prefab, new Vector3(x, 0, z) - _raftOffset + buildingObject.Offset, Quaternion.identity, _papa);
         raft.GetComponent<TileObject>().Position = new Vector2Int((int)position.x, (int)position.y);
-        raft.transform.parent = transform;
+        raft.transform.parent = _papa;
 
         switch (buildingObject.PlaceType)
         {
