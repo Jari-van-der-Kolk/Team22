@@ -29,7 +29,7 @@ public class ThirdPersonCamera : MonoBehaviour
         // Apply rotation input from mouse movement
         rotationX += Input.GetAxis("Mouse X") * rotationSpeed;
         rotationY -= Input.GetAxis("Mouse Y") * rotationSpeed;
-        rotationY = Mathf.Clamp(rotationY, -60f, 60f);
+       // rotationY = Mathf.Clamp(rotationY, -60f, 60f);
 
         // Apply zoom input from mouse scroll wheel
         float scroll = Input.GetAxis("Mouse ScrollWheel");
