@@ -18,11 +18,12 @@ public class Enemy : MonoBehaviour
 
     private float _distanceThreshold = 0.1f; // adjust this to change how close the enemy needs to get to the target position before choosing a new target
 
-    private bool _shootingPosition;
+    private Rigidbody _rb;
 
     private void Start()
     {
         ChooseNewRandomTargetPosition();
+        _rb = GetComponent<Rigidbody>();
     }
 
     private void Update()
@@ -39,11 +40,17 @@ public class Enemy : MonoBehaviour
 
                 if (Vector3.Distance(transform.position, _player.position) <= _enemyData.DetectingPlayerDistance)
                     _states = States.attacking;
+
+                _rb.velocity = Vector3.zero;
                 break;
 
             case States.attacking:
                 transform.LookAt(_player.position);
-                
+                _rb.AddForce(transform.forward * _enemyData.AttackSpeed, ForceMode.Force);
+                if (Vector3.Distance(transform.position, _player.position) >= _enemyData.DetectingPlayerDistance)
+                {
+                    _states = States.roaming;
+                }
                 break;
         }
     }

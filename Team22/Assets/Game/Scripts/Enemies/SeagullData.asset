@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: SeagullData
   m_EditorClassIdentifier: 
   Speed: 6
+  AttackSpeed: 2
   MovementAmount: 4
-  DetectingPlayerDistance: 7
+  DetectingPlayerDistance: 12
