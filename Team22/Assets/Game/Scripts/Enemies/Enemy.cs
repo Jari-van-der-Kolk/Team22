@@ -28,6 +28,8 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
+        if (!Player) return;
+
         switch (_states)
         {
             case States.roaming:
