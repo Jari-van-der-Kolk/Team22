@@ -13,11 +13,7 @@ public class ThirdPersonCamera : MonoBehaviour
     private float currentRotationAngle = 0.0f;
     private float currentHeight = 0.0f;
 
-    private void Start()
-    {
-        Cursor.lockState = CursorLockMode.Locked;
-    }
-
+  
     private void LateUpdate()
     {
         if (!target)

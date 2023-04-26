@@ -130,5 +130,9 @@ namespace JariUnityUISystem
         public void ChangeScene(string name) => SceneManager.LoadScene(name);
 
         public void QuitGame() => Application.Quit();
+
+        public void ActivateMouseLock() => Cursor.lockState = CursorLockMode.None;
+        public void DeactivateMouseLock() => Cursor.lockState = CursorLockMode.Locked;
+
     }
 }

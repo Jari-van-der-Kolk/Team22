@@ -6,6 +6,7 @@ public class HealthManager : MonoBehaviour, IDamagable
 {
     public float maxHealth;
     public float Health { get; set; }
+    [SerializeField] private GameObject _deathMenu;
 
     [SerializeField] private float DEBUGHEALTH;
     private void Awake()
@@ -35,7 +36,8 @@ public class HealthManager : MonoBehaviour, IDamagable
     {
         if (Health <= 0)
         {
-            Destroy(gameObject);
+            _deathMenu.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
         }
     }
 }
