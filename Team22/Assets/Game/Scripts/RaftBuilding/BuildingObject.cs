@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New BuildObject", menuName = "BuildObject", order = 0)]
+[CreateAssetMenu(fileName = "New BuildObject", menuName = "ScriptableObjects/BuildObject", order = 1)]
 public class BuildingObject : ScriptableObject
 {
     public enum PlacementType

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObjectName: Floor
   Prefab: {fileID: 476684950650732317, guid: ef7b1a28d749acc4cba8674c85934387, type: 3}
-  Cost: 25
+  Cost: 100
   PlaceType: 0
   SelectionLayerMask:
     serializedVersion: 2

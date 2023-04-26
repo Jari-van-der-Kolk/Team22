@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObjectName: Cannon
   Prefab: {fileID: 3987568827761751566, guid: 37dd4503ea1f47b4bb64a989efa0cd1b, type: 3}
-  Cost: 75
+  Cost: 150
   PlaceType: 1
   SelectionLayerMask:
     serializedVersion: 2
