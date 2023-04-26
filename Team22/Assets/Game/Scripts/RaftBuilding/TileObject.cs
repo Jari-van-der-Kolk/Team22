@@ -2,38 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SelectionPoint : MonoBehaviour
+public class TileObject : MonoBehaviour
 {
     [SerializeField] private Material _redMaterial;
-    [SerializeField] private Material _greenMaterial;
+    private Material _defaultMaterial;
     private MeshRenderer _meshRenderer;
-    public Vector2Int Position;
-    public bool ShowGreen;
     public bool ShowRed;
+    public Vector2Int Position;
     public RaftBuilding.TileType Type;
+    public int Cost;
 
     private void Awake()
     {
         _meshRenderer = GetComponent<MeshRenderer>();
+        _defaultMaterial = _meshRenderer.material;
     }
 
     private void Update()
-    {
-        if (ShowGreen)
-        {
-            _meshRenderer.material = _greenMaterial;
-            _meshRenderer.enabled = true;
-            ShowGreen = false;
-        }
-        else if (ShowRed)
+    { 
+        if (ShowRed)
         {
             _meshRenderer.material = _redMaterial;
-            _meshRenderer.enabled = true;
             ShowRed = false;
         }    
         else
         {
-            _meshRenderer.enabled = false;
+            _meshRenderer.material = _defaultMaterial;
         }
     }
 }

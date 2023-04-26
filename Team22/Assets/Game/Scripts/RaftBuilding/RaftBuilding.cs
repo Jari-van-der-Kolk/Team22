@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO.Pipes;
 using TMPro;
 using UnityEngine;
 
@@ -13,12 +14,16 @@ public class RaftBuilding : MonoBehaviour
         Balloon
     }
 
+    [SerializeField] private CratePlacement _cratePlacement;
+
     [SerializeField] private BuildingObject[] _tileObjects;
-    [SerializeField] private bool _itemSelected;
     [SerializeField] private TileType _selectedTileType;
     [SerializeField] private int _money;
     [SerializeField] private TextMeshProUGUI _moneyText;
+    [SerializeField] private LayerMask _selectionLayerMask;
 
+    public bool _itemSelected;
+    public bool _removeMode;
     private int[,] _floorGrid = new int[7, 4];
     private int[,] _centerGrid;
     private int[,] _cournerGrid;
@@ -68,7 +73,7 @@ public class RaftBuilding : MonoBehaviour
     private void Update()
     {
         if (_itemSelected)
-        {   
+        {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
@@ -93,6 +98,7 @@ public class RaftBuilding : MonoBehaviour
                             isAvailable = false;
                             break;
                     }
+
                     if (isAvailable)
                     {
                         if (_money >= _tileObjects[(int)_selectedTileType].Cost)
@@ -112,8 +118,39 @@ public class RaftBuilding : MonoBehaviour
                 }
             }
         }
-    }
+        else if (_removeMode)
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
 
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, _selectionLayerMask))
+            {
+                var tile = hit.transform.GetComponent<TileObject>();
+                if (null != tile && (tile.Position != new Vector2Int(3,1) || tile.Type != TileType.Floor))
+                {
+                    tile.ShowRed = true;
+                    if (Input.GetMouseButtonDown(0))
+                    {
+                        UpdateMoney(tile.Cost);
+                        Destroy(tile.gameObject);
+                        switch (tile.Type)
+                        {
+                            case TileType.Floor:
+                                _floorGrid[tile.Position.x, tile.Position.y] = 0;
+                                break;
+                            case TileType.Cannon:
+                                _centerGrid[tile.Position.x, tile.Position.y] = 0;
+                                break;
+                            case TileType.Balloon:
+                                _cournerGrid[tile.Position.x, tile.Position.y] = 0;
+                                break;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
     private bool CheckTileAvailability(bool isFloor, Vector2Int position)
     {
         if ((_floorGrid[position.x, position.y] == 0) == isFloor)
@@ -165,6 +202,7 @@ public class RaftBuilding : MonoBehaviour
                         var x = i * 2;
                         var z = j * 2;
                         var raft = Instantiate(_tileObjects[k].Prefab, new Vector3(x, 0, z) - _raftOffset + _tileObjects[k].Offset, Quaternion.identity);
+                        raft.GetComponent<TileObject>().Position = new Vector2Int(i, j);
                         raft.transform.parent = transform;
                     }
                 }
@@ -177,6 +215,7 @@ public class RaftBuilding : MonoBehaviour
         var x = position.x * 2;
         var z = position.y * 2;
         var raft = Instantiate(buildingObject.Prefab, new Vector3(x, 0, z) - _raftOffset + buildingObject.Offset, Quaternion.identity);
+        raft.GetComponent<TileObject>().Position = new Vector2Int((int)position.x, (int)position.y);
         raft.transform.parent = transform;
 
         switch (buildingObject.PlaceType)
@@ -199,7 +238,18 @@ public class RaftBuilding : MonoBehaviour
     public void SelectTileType(int index)
     {
         _selectedTileType = (TileType)index;
+        _itemSelected = true;
+        _cratePlacement._itemSelected = false;
+        _removeMode = false;
     }
+
+    public void SelectRemoveMode()
+    {
+        _itemSelected = false;
+        _cratePlacement._itemSelected = false;
+        _removeMode = true;
+    }
+    
     private void UpdateMoney(int value)
     {
         _money += value;
