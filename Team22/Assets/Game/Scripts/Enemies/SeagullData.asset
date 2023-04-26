@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 952d4735398b5ab46bebe9aa840b24ae, type: 3}
   m_Name: SeagullData
   m_EditorClassIdentifier: 
-  Speed: 6
-  AttackSpeed: 2
+  Speed: 10
+  AttackSpeed: 5
   MovementAmount: 7
-  DetectingPlayerDistance: 12
+  DetectingPlayerDistance: 16
