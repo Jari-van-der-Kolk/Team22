@@ -2,47 +2,43 @@ using UnityEngine;
 
 public class ThirdPersonCamera : MonoBehaviour
 {
+    public Transform target;        // the target to follow
+    public float distance = 5.0f;   // distance from target
+    public float height = 2.0f;     // height above target
+    public float rotationDamping = 3.0f;   // how quickly camera rotates to follow target
+    public float heightDamping = 2.0f;     // how quickly camera adjusts its height to follow target
+    public float mouseSensitivity = 2.0f;  // how sensitive the mouse movement is
+    public float scrollSensitivity = 2.0f; // how sensitive the scroll wheel is
 
-    public Transform target;
-    public float distance = 5.0f;
-    public float minDistance = 2.0f;
-    public float maxDistance = 10.0f;
-    public float height = 2.0f;
-    public float smoothSpeed = 5.0f;
-    public float rotationSpeed = 2.0f;
-    public float zoomSpeed = 2.0f;
+    private float currentRotationAngle = 0.0f;
+    private float currentHeight = 0.0f;
 
-    private float rotationX = 0.0f;
-    private float rotationY = 0.0f;
-    private Vector3 offset;
-
-    void Start()
+    private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        offset = new Vector3(0, height, -distance);
-        rotationX = transform.rotation.eulerAngles.y;
-        rotationY = transform.rotation.eulerAngles.x;
     }
 
-    void LateUpdate()
+    private void LateUpdate()
     {
-        // Apply rotation input from mouse movement
-        rotationX += Input.GetAxis("Mouse X") * rotationSpeed;
-        rotationY -= Input.GetAxis("Mouse Y") * rotationSpeed;
-       // rotationY = Mathf.Clamp(rotationY, -60f, 60f);
+        if (!target)
+            return;
 
-        // Apply zoom input from mouse scroll wheel
-        float scroll = Input.GetAxis("Mouse ScrollWheel");
-        distance -= scroll * zoomSpeed;
-        distance = Mathf.Clamp(distance, minDistance, maxDistance);
+        // get the horizontal mouse input to rotate the camera
+        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
 
-        // Calculate camera position and rotation
-        Quaternion rotation = Quaternion.Euler(rotationY, rotationX, 0);
-        Vector3 desiredPosition = target.position + (rotation * offset);
-        offset = new Vector3(0, height, -distance);
-        Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition + offset, smoothSpeed * Time.deltaTime);
-        transform.position = smoothedPosition;
+        // rotate the camera horizontally around the target
+        currentRotationAngle += mouseX;
+        Quaternion rotation = Quaternion.Euler(0.0f, currentRotationAngle, 0.0f);
+        transform.position = target.position - (rotation * Vector3.forward * distance);
 
+        // adjust camera height based on the target's position and the mouse scroll wheel input
+        float scroll = Input.GetAxis("Mouse ScrollWheel") * scrollSensitivity;
+        height -= scroll;
+        height = Mathf.Clamp(height, 0.0f, Mathf.Infinity);
+        currentHeight = Mathf.Lerp(currentHeight, target.position.y + height, heightDamping * Time.deltaTime);
+        transform.position = new Vector3(transform.position.x, currentHeight, transform.position.z);
+
+        // look at the target
         transform.LookAt(target);
     }
 }
